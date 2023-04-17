@@ -1,5 +1,6 @@
 const express= require('express');
 const cors=require('cors');
+const morgan=require('morgan')
 const planetsRouter=require('./routers/planets/planets.router');
 const app=express();
 
@@ -8,7 +9,8 @@ const app=express();
 // }));
 
 app.use(cors());
+app.use(morgan('combined'));
 app.use(express.json());
 app.use(planetsRouter);
 
-module.exports =app;
+module.exports =app; 
